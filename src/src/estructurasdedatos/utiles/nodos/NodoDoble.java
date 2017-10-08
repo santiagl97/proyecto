@@ -7,8 +7,22 @@ package estructurasdedatos.utiles.nodos;
 
 /**
  *
- * @author tusk
+ * @author santiago
  */
 public class NodoDoble {
+    NodoDoble anterior;
+    NodoDoble siguiente;
+    int dato;
     
+    public int getDato(){
+        return dato;
+    }
+    
+    public void setDato(int dato){
+        this.dato=dato;
+    }
+    
+    public void getSiguiente(int siguiente){
+        
+    }
 }
