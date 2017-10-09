@@ -7,7 +7,7 @@ package estructurasdedatos.cap2.arreglos;
 
 /**
  *
- * @author tusk
+ * @author santiago
  */
 public class Vector {
     

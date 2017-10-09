@@ -7,7 +7,7 @@ package estructurasdedatos.cap2.listas;
 
 /**
  *
- * @author tusk
+ * @author santiago
  */
 public class ListaSimple {
     
