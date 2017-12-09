@@ -9,7 +9,7 @@ import estructurasdedatos.utiles.nodos.NodoArbolAVL;
 
 /**
  *
- * @author tusk
+ * @author santiago londoño rojas
  */
 public class ArbolAVL {
         private NodoArbolAVL raiz;
@@ -81,7 +81,7 @@ public int Fe(NodoArbolAVL d){
             if (subArbol.getHijoDer()== null) {
                 subArbol.setHijoDer(nuevo);
             } else {
-                subArbol.sethDer(insertarN(nuevo, subArbol.getHijoDer()));
+                subArbol.setHijoDer(insertarN(nuevo, subArbol.getHijoDer()));
                 if ((Fe(subArbol.getHijoDer()) - Fe(subArbol.getHijoIzq()) == 2)) {
                     if (nuevo.getDato() > subArbol.getHijoDer().getDato()) {
                         padre = rotarDD(subArbol);
@@ -96,13 +96,13 @@ public int Fe(NodoArbolAVL d){
         } else {
             System.out.println("El Nodo ya Existe");
         }
-        if ((subArbol.gethIzq()== null) && (subArbol.gethDer()!= null)) {
-            subArbol.setFe(subArbol.gethDer().getFe() + 1);
+        if ((subArbol.getHijoIzq()== null) && (subArbol.getHijoDer()!= null)) {
+            subArbol.setFe(subArbol.getHijoDer().getFe() + 1);
         } else 
-            if ((subArbol.gethDer()== null) && (subArbol.gethIzq()!= null)) {
-            subArbol.setFe(subArbol.gethIzq().getFe() + 1);
+            if ((subArbol.getHijoDer()== null) && (subArbol.getHijoIzq()!= null)) {
+            subArbol.setFe(subArbol.getHijoIzq().getFe() + 1);
         } else {
-            subArbol.setFe(Math.max(Fe(subArbol.gethIzq()), Fe(subArbol.gethDer())) + 1);
+            subArbol.setFe(Math.max(Fe(subArbol.getHijoIzq()), Fe(subArbol.getHijoDer())) + 1);
         }
         return padre;
     }
@@ -119,9 +119,9 @@ public int Fe(NodoArbolAVL d){
     
     public void Orden(NodoArbolAVL n) {
         if (n != null) {
-            Orden(n.gethIzq());
+            Orden(n.getHijoIzq());
             System.out.print(n.getDato() + "\\");
-            Orden(n.gethDer());
+            Orden(n.getHijoDer());
         }
     }
     
@@ -130,29 +130,29 @@ public int Fe(NodoArbolAVL d){
         NodoArbolAVL temp = null;
         NodoArbolAVL aux = (Buscar(dato, raiz));
         if (Buscar(dato, raiz) != null) {
-            if ((aux.gethIzq()== null) && (aux.gethDer()== null)) {
+            if ((aux.getHijoIzq()== null) && (aux.getHijoDer()== null)) {
                 aux = null;
             } else {
-                if ((aux.gethIzq()!= null) && (aux.gethDer()!= null)) {
+                if ((aux.getHijoIzq()!= null) && (aux.getHijoDer()!= null)) {
                     if (aux == raiz) {
-                        temp = aux.gethIzq();
-                        aux = aux.gethDer();
-                        while (aux.gethIzq()!= null) {
-                            aux = aux.gethIzq();
+                        temp = aux.getHijoIzq();
+                        aux = aux.getHijoDer();
+                        while (aux.getHijoIzq()!= null) {
+                            aux = aux.getHijoIzq();
                         }
-                        aux.sethIzq(temp);
+                        aux.setHijoIzq(temp);
                     } else {
                         if (aux == raiz) {
-                            if (aux.gethIzq()!= null) {
-                                aux = aux.gethDer();
+                            if (aux.getHijoIzq()!= null) {
+                                aux = aux.getHijoDer();
                             } else {
-                                aux = aux.gethDer();
+                                aux = aux.getHijoDer();
                             }
                         } else {
-                            if (aux.gethIzq()!= null) {
-                                aux = aux.gethIzq();
+                            if (aux.getHijoIzq()!= null) {
+                                aux = aux.getHijoIzq();
                             } else {
-                                aux = aux.gethIzq();
+                                aux = aux.getHijoIzq();
                             }
                         }
                     }
@@ -166,33 +166,33 @@ public int Fe(NodoArbolAVL d){
  
     
     public NodoArbolAVL rotarII(NodoArbolAVL n) {
-        NodoArbolAVL aux = n.gethIzq();
-        n.sethIzq(aux.gethDer());
-        aux.sethDer(n);
-        n.setFe(Math.max(Fe(n.gethIzq()), Fe(n.gethDer())) + 1);
-        aux.setFe(Math.max(Fe(aux.gethIzq()), Fe(aux.gethDer())) + 1);
+        NodoArbolAVL aux = n.getHijoIzq();
+        n.setHijoIzq(aux.getHijoDer());
+        aux.setHijoDer(n);
+        n.setFe(Math.max(Fe(n.getHijoIzq()), Fe(n.getHijoDer())) + 1);
+        aux.setFe(Math.max(Fe(aux.getHijoIzq()), Fe(aux.getHijoDer())) + 1);
         return aux;
     }
 
     public NodoArbolAVL rotarDD(NodoArbolAVL n) {
-        NodoArbolAVL aux = n.gethDer();
-        n.sethDer(aux.gethIzq());
-        aux.sethIzq(n);
-        n.setFe(Math.max(Fe(n.gethIzq()), Fe(n.gethDer())) + 1);
-        aux.setFe(Math.max(Fe(aux.gethIzq()), Fe(aux.gethDer())) + 1);
+        NodoArbolAVL aux = n.getHijoDer();
+        n.setHijoDer(aux.getHijoIzq());
+        aux.setHijoIzq(n);
+        n.setFe(Math.max(Fe(n.getHijoIzq()), Fe(n.getHijoDer())) + 1);
+        aux.setFe(Math.max(Fe(aux.getHijoIzq()), Fe(aux.getHijoDer())) + 1);
         return aux;
     }
 
     public NodoArbolAVL rotarID(NodoArbolAVL n) {
         NodoArbolAVL aux;
-        n.sethIzq(rotarDD(n.gethDer()));
+        n.setHijoIzq(rotarDD(n.getHijoDer()));
         aux = rotarII(n);
         return aux;
     }
 
     public NodoArbolAVL rotarDI(NodoArbolAVL n) {
         NodoArbolAVL aux;
-        n.sethDer(rotarII(n.gethDer()));
+        n.setHijoDer(rotarII(n.getHijoDer()));
         aux = rotarDD(n);
         return aux;
     }
