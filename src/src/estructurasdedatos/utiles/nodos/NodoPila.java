@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package estructurasdedatos.cap5.grafos;
+package estructurasdedatos.utiles.nodos;
 
 /**
  *
- * @author tusk
+ * @author Santiago
  */
-public class Dijkstra {
+public class NodoPila {
     
 }

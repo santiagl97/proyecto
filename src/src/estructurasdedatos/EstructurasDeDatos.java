@@ -5,15 +5,15 @@
  */
 package estructurasdedatos;
 
-import estructurasdedatos.cap1.complejidad.Ciclos;
+/*import estructurasdedatos.cap1.complejidad.Ciclos;
 import estructurasdedatos.cap1.complejidad.Condicionales;
 import estructurasdedatos.cap3.mapas.Diccionario;
 
 /**
  *
  * @author tusk
- */
-public class EstructurasDeDatos {
+
+public class EstructurasDeDatos { 
 
     /**
      * @param args the command line arguments
@@ -50,7 +50,7 @@ public class EstructurasDeDatos {
     
     
             
-     }*/
+     }
     
     public static void main(String[] args) {
         Diccionario dn= new Diccionario();
@@ -65,4 +65,6 @@ public class EstructurasDeDatos {
        dn.eliminar("carro");
     }
 }
+
+*/
 
